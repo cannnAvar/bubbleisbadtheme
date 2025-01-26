@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://01mcir2h8xyq"]
+
+[ext_resource type="Script" path="res://script/spawner.gd" id="1_hgs7a"]
+[ext_resource type="Texture2D" uid="uid://ilmp1d6dhx0b" path="res://Sprites/Spawner.png" id="1_vbxhs"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_hgs7a")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -90)
+
+[node name="Spawner" type="Sprite2D" parent="."]
+texture = ExtResource("1_vbxhs")
+offset = Vector2(0, -48)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

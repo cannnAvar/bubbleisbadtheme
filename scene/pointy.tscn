@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://nurceaslso54"]
+
+[ext_resource type="Texture2D" uid="uid://c5yil51ki35fo" path="res://Sprites/Pointy.png" id="1_s75ht"]
+[ext_resource type="Script" path="res://script/pointy.gd" id="1_val1g"]
+
+[node name="Pointy" type="Area2D"]
+script = ExtResource("1_val1g")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-15, 15, 0, -15, 15, 15, 0, 9)
+
+[node name="Pointy" type="Sprite2D" parent="."]
+texture = ExtResource("1_s75ht")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
